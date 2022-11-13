@@ -66,7 +66,7 @@ while True:
             number_xcord = []
             number_ycord = []
 
-            img_arr = np.array(pygame.PixelArray(DISPLAYSURF))[rect_min_x:rect_max_x, rect_min_y, rect_max_y].T.astype(np.float32)
+            img_arr = np.array(pygame.PixelArray(DISPLAYSURF))[rect_min_x:rect_max_x, rect_min_y:rect_max_y].T.astype(np.float32)
 
             if IMAGESAVE:
                 cv2.imwrite("Image.png")
