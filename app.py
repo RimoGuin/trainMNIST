@@ -17,7 +17,7 @@ RED = (255, 0, 0)
 
 IMAGESAVE = False
 
-MODEL = load_model("mnist_trained.h5")
+MODEL = load_model("D://MNIST classification//mnist_trained.h5")
 
 LABELS = {0:"Zero", 1:"One",
         2:"Two", 3:"Three",
@@ -34,6 +34,7 @@ DISPLAYSURF = pygame.display.set_mode((WINDOWSIZEX, WINDOWSIZEY))
 pygame.display.set_caption("Digit Board")
 
 iswriting = False
+
 number_xcord = []
 number_ycord = []
 
@@ -45,7 +46,7 @@ while True:
         
         if event.type == MOUSEMOTION and iswriting:
             xcord, ycord = event.pos
-            pygame.draw.circle(DISPLAYSURF, WHITE, (xcord, ycord), 4, 0)
+            pygame.draw.circle(DISPLAYSURF, WHITE, (xcord, ycord), 4, 0 )
             
             number_xcord.append(xcord)
             number_ycord.append(ycord)
@@ -60,7 +61,7 @@ while True:
             number_ycord = sorted(number_ycord)
 
             rect_min_x, rect_max_x = max(number_xcord[0]-BOUNDRYINC, 0 ), min(WINDOWSIZEX, number_xcord[-1]+BOUNDRYINC)
-            rect_min_y, rect_max_y = max(number_ycord[0]-BOUNDRYINC, 0 ), min(WINDOWSIZEX, number_ycord[-1]+BOUNDRYINC)
+            rect_min_y, rect_max_y = max(number_ycord[0]-BOUNDRYINC, 0 ), min(WINDOWSIZEY, number_ycord[-1]+BOUNDRYINC)
 
             number_xcord = []
             number_ycord = []
@@ -73,7 +74,7 @@ while True:
 
             if PREDICT:
 
-                image = cv2.resize(img_arr(28, 28))
+                image = cv2.resize(img_arr, (28, 28))
                 image = np.pad(image, (10,10), 'constant', constant_values = 0)
                 image = cv2.resize(image, (28,28))/255
 
