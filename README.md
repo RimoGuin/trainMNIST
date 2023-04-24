@@ -5,6 +5,4 @@ MNIST Dataset: The MNIST database (Modified National Institute of Standards and 
 
 [MNIST database](https://en.wikipedia.org/wiki/MNIST_database)
 
-[Tutorial used](https://www.youtube.com/watch?v=L2cAjgc1-bo)
-
 Update 1: The model is overfitted, need to run it again, with lesser epochs(40+ is too much).
